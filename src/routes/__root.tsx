@@ -79,19 +79,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Scanner OCR Console" },
+      { title: "Scanner OCR Console — Document Ingestion Dashboard" },
       {
         name: "description",
         content:
-          "Ingest scanned documents from your scanner folder, OCR them with your local vLLM server, and store structured data.",
+          "Watch your scanner folder, run vLLM OCR on single and multi-page scans, and track extracted document data.",
       },
-      { property: "og:title", content: "Scanner OCR Console" },
+      { property: "og:title", content: "Scanner OCR Console — Document Ingestion Dashboard" },
       {
         property: "og:description",
-        content: "Folder watcher, vLLM OCR, structured extraction and human review in one console.",
+        content: "Watch your scanner folder, run vLLM OCR on single and multi-page scans, and track extracted document data.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Scanner OCR Console — Document Ingestion Dashboard" },
+      { name: "twitter:description", content: "Watch your scanner folder, run vLLM OCR on single and multi-page scans, and track extracted document data." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72d2ebbf76db00fa0e5a454c63ee7a79/id-preview-6cf77b0a--9f32591a-231f-4493-b7c5-5804906ed64d.lovable.app-1786361395902.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72d2ebbf76db00fa0e5a454c63ee7a79/id-preview-6cf77b0a--9f32591a-231f-4493-b7c5-5804906ed64d.lovable.app-1786361395902.png" },
     ],
     links: [
       {

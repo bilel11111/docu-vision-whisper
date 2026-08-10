@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
         content:
           "Watch your scanner folder, run vLLM OCR on single and multi-page scans, and track extracted document data.",
       },
-      { property: "og:title", content: "Scanner OCR Console" },
+      { property: "og:title", content: "Scanner OCR Console — Document Ingestion Dashboard" },
       {
         property: "og:description",
         content:
-          "Ingest scanned documents, run OCR and structured extraction through your local vLLM server, and review results.",
+          "Watch your scanner folder, run vLLM OCR on single and multi-page scans, and track extracted document data.",
       },
     ],
   }),
