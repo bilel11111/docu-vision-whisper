@@ -126,12 +126,16 @@ export async function scanTree(root: string): Promise<ParsedDocument[]> {
       if (await dirHasImages(sub)) imageBearingSubdirs.push(sub);
     }
 
-    const isDocumentFolder = dir !== root && files.length > 0 && imageBearingSubdirs.length === 0;
+    // A folder is one multi-page document only when it holds a page named after
+    // itself (07/07.jpg). Otherwise its images are separate single-page documents,
+    // which keeps day folders like January/02/01.jpg unambiguous.
+    const reference = path.basename(dir);
+    const names = files.map((f) => f.name).sort(naturalCompare);
+    const main = names.find((n) => path.parse(n).name === reference);
+    const isDocumentFolder =
+      dir !== root && files.length > 0 && imageBearingSubdirs.length === 0 && Boolean(main);
 
     if (isDocumentFolder) {
-      const reference = path.basename(dir);
-      const names = files.map((f) => f.name).sort(naturalCompare);
-      const main = names.find((n) => path.parse(n).name === reference);
       const ordered = main ? [main, ...names.filter((n) => n !== main)] : names;
       docs.push({
         reference,
