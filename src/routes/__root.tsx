@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -39,10 +38,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -94,8 +89,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Scanner OCR Console — Document Ingestion Dashboard" },
       { name: "twitter:description", content: "Watch your scanner folder, run vLLM OCR on single and multi-page scans, and track extracted document data." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72d2ebbf76db00fa0e5a454c63ee7a79/id-preview-6cf77b0a--9f32591a-231f-4493-b7c5-5804906ed64d.lovable.app-1786361395902.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72d2ebbf76db00fa0e5a454c63ee7a79/id-preview-6cf77b0a--9f32591a-231f-4493-b7c5-5804906ed64d.lovable.app-1786361395902.png" },
     ],
     links: [
       {

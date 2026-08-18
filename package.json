@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "docuvision",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -84,5 +84,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.2.0"
-  }
+  },
+  "description": "Document processing workspace for OCR, extraction, review queues, and scanner workflows."
 }
